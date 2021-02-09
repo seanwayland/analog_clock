@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to calculate the number of years since midnight, January 1, 1970.</p>
+
+<button onclick="myFunction()">Try it</button>
+<p> ms </p>
+<p id="ms"></p>
+<p> mins </p>
+<p id="minutes"></p>
+<p> hours </p>
+<p id="hours"></p>
+
+<script>
+function myFunction() {
+  var minutes = 1000 * 60;
+  var hours = minutes * 60;
+  var days = hours * 24;
+  var years = days * 365;
+  var d = new Date();
+  var t= d.getTime();
+
+  var y = Math.round(t / years);
+  var h = Math.round(t / hours);
+  var m = Math.round(t / minutes);
+
+  document.getElementById("ms").innerHTML = t;
+  document.getElementById("minutes").innerHTML = h;
+  document.getElementById("hours").innerHTML = m;
+}
+</script>
+
+</body>
+</html>
