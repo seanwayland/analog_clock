@@ -21,9 +21,9 @@ function myFunction() {
   var d = new Date();
   var t= d.getTime();
 
-  var y = Math.round(t / years);
-  var h = Math.round(t / hours);
-  var m = Math.round(t / minutes);
+  var y = (t / years);
+  var h = (t / hours);
+  var m = (t / minutes);
 
   document.getElementById("ms").innerHTML = t;
   document.getElementById("minutes").innerHTML = h;
