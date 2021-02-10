@@ -9,14 +9,15 @@
 <p> ms </p>
 <p id="ms"></p>
 <p> seconds </p>
-<p id = "s"> </p>
-<p id = "ss"> </p>
+<p id = "secs"> </p>
+<p id = "secs_float"> </p>
 <p> mins </p>
 <p id ="mm" ></p>
 <p id="minutes"></p>
 <p> hours </p>
-<p id="hh"></p>
-<p id="hours"></p>
+<p id="hrs"></p>
+<p id="hrs_float"></p>
+
 
 <script>
 function myFunction() {
@@ -29,20 +30,20 @@ function myFunction() {
   var t= d.getTime();
   var mm = d.getMinutes();
   var n = d.getHours();
-  n = (n % 12) || 12;
-  var s = d.getSeconds();
-  var ss = (t / seconds);
+  var hrs = (n % 12) || 12;
+  var secs = d.getSeconds();
+  var secs_float = (t / seconds);
   var y = (t / years);
-  var h = (t / hours);
+  var hrs_float = (t / hours);
   var m = (t / minutes);
 
   document.getElementById("ms").innerHTML = t;
   document.getElementById("minutes").innerHTML = m;
   document.getElementById("mm").innerHTML = mm;
-  document.getElementById("hours").innerHTML = h;
-  document.getElementById("hh").innerHTML = n;
-    document.getElementById("s").innerHTML = s;
-  document.getElementById("ss").innerHTML = ss;
+  document.getElementById("hrs_float").innerHTML = hrs_float;
+  document.getElementById("hrs").innerHTML = hrs;
+  document.getElementById("secs").innerHTML = secs;
+  document.getElementById("secs_float").innerHTML = secs_float;
 }
 setInterval(myFunction, 100);
 </script>
