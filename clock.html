@@ -2,32 +2,47 @@
 <html>
 <body>
 
-<p>Click the button to calculate the number of years since midnight, January 1, 1970.</p>
+<p>Time since midnight, January 1, 1970.</p>
 
-<button onclick="myFunction()">Try it</button>
+<!--<button onclick="myFunction()">Try it</button> -->
+<body onload="myFunction()">
 <p> ms </p>
 <p id="ms"></p>
+<p> seconds </p>
+<p id = "s"> </p>
+<p id = "ss"> </p>
 <p> mins </p>
+<p id ="mm" ></p>
 <p id="minutes"></p>
 <p> hours </p>
+<p id="hh"></p>
 <p id="hours"></p>
 
 <script>
 function myFunction() {
+  var seconds = 1000
   var minutes = 1000 * 60;
   var hours = minutes * 60;
   var days = hours * 24;
   var years = days * 365;
   var d = new Date();
   var t= d.getTime();
-
+  var mm = d.getMinutes();
+  var n = d.getHours();
+  n = (n % 12) || 12;
+  var s = d.getSeconds();
+  var ss = (t / seconds);
   var y = (t / years);
   var h = (t / hours);
   var m = (t / minutes);
 
   document.getElementById("ms").innerHTML = t;
-  document.getElementById("minutes").innerHTML = h;
-  document.getElementById("hours").innerHTML = m;
+  document.getElementById("minutes").innerHTML = m;
+  document.getElementById("mm").innerHTML = mm;
+  document.getElementById("hours").innerHTML = h;
+  document.getElementById("hh").innerHTML = n;
+    document.getElementById("s").innerHTML = s;
+  document.getElementById("ss").innerHTML = ss;
 }
 setInterval(myFunction, 100);
 </script>
