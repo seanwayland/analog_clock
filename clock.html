@@ -2,21 +2,23 @@
 <html>
 <body>
 
-<p>Time since midnight, January 1, 1970.</p>
 
-<!--<button onclick="myFunction()">Try it</button> -->
+
 <body onload="myFunction()">
-<p> ms </p>
+
 <p id="ms"></p>
-<p> seconds </p>
+
 <p id = "secs"> </p>
 <p id = "secs_float"> </p>
-<p> mins </p>
+<p id = "secs_mantissa"> </p>
+
 <p id ="mins" ></p>
 <p id="mins_float"></p>
-<p> hours </p>
+<p id="mins_mantissa"></p>
+
 <p id="hrs"></p>
 <p id="hrs_float"></p>
+<p id="hrs_mantissa"></p>
 
 
 <script>
@@ -33,16 +35,23 @@ function myFunction() {
   var hrs = (n % 12) || 12;
   var secs = d.getSeconds();
   var secs_float = (t / seconds);
+  var secs_mantissa = secs + (secs_float%1);
   var hrs_float = (t / hours);
+  var hrs_mantissa = hrs + (hrs_float%1);
   var mins_float = (t / minutes);
+  var mins_mantissa = mins + (mins_float%1);
 
-  document.getElementById("ms").innerHTML = t;
-  document.getElementById("secs").innerHTML = secs;
-  document.getElementById("secs_float").innerHTML = secs_float;
-  document.getElementById("mins").innerHTML = mins;
-  document.getElementById("mins_float").innerHTML = mins_float;
-  document.getElementById("hrs_float").innerHTML = hrs_float;
-  document.getElementById("hrs").innerHTML = hrs;
+  document.getElementById("ms").innerHTML = "milliseconds: " +  t;
+  document.getElementById("secs").innerHTML = "clock secs: " + secs;
+  document.getElementById("secs_float").innerHTML = "secs since epoch: " + secs_float;
+  document.getElementById("mins").innerHTML = "mins: " +  mins;
+  document.getElementById("mins_float").innerHTML = "mins since epoch: " + mins_float;
+  document.getElementById("hrs_float").innerHTML = "hrs since epoch: " + hrs_float;
+  document.getElementById("hrs").innerHTML = "clock hrs: " + hrs;
+  document.getElementById("secs_mantissa").innerHTML = "clock secs float: " + secs_mantissa;
+  document.getElementById("mins_mantissa").innerHTML = "clock mins float: " + mins_mantissa;
+  document.getElementById("hrs_mantissa").innerHTML = "clock hrs float: " + hrs_mantissa;
+
 
 }
 setInterval(myFunction, 100);
