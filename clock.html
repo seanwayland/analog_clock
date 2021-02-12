@@ -5,7 +5,8 @@
 <canvas id="canvas" width="400" height="400"
 style="background-color:#333">
 </canvas>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
 <script>
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
@@ -97,7 +98,7 @@ function drawHand(ctx, pos, length, width) {
 
 <p> the Unix epoch is 00:00:00 UTC on 1 January 1970 </p>
 
-<body onload="myFunction()">
+<body onload="checkMath()">
 
 <p id="ms"></p>
 
@@ -134,16 +135,16 @@ function checkMath() {
   var mins_float = (t / minutes);
   var mins_mantissa = mins + (mins_float%1);
 
-  document.getElementById("ms").innerHTML = "milliseconds since epoch: " +  t;
-  document.getElementById("secs").innerHTML = "clock secs: " + secs;
-  document.getElementById("secs_float").innerHTML = "secs since epoch: " + secs_float;
-  document.getElementById("mins").innerHTML = "mins: " +  mins;
-  document.getElementById("mins_float").innerHTML = "mins since epoch: " + mins_float;
-  document.getElementById("hrs_float").innerHTML = "hrs since epoch: " + hrs_float;
-  document.getElementById("hrs").innerHTML = "clock hrs: " + hrs;
-  document.getElementById("secs_mantissa").innerHTML = "clock secs float: " + secs_mantissa;
-  document.getElementById("mins_mantissa").innerHTML = "clock mins float: " + mins_mantissa;
-  document.getElementById("hrs_mantissa").innerHTML = "clock hrs float: " + hrs_mantissa;
+  $("#ms").text("milliseconds since epoch: " +  t);
+  $("#secs").text("clock secs: " + secs);
+  $("#secs_float").text("secs since epoch: " + secs_float);
+  $("#mins").text("mins: " +  mins);
+  $("#mins_float").text("mins since epoch: " + mins_float);
+  $("#hrs_float").text("hrs since epoch: " + hrs_float);
+  $("#hrs").text("clock hrs: " + hrs);
+  $("#secs_mantissa").text("clock secs float: " + secs_mantissa);
+  $("#mins_mantissa").text("clock mins float: " + mins_mantissa);
+  $("#hrs_mantissa").text("clock hrs float: " + hrs_mantissa);
 
 
 }
